@@ -9,11 +9,24 @@ function NewPlantForm({plantInputForm}) {
   function updatePlantForm(e) {
     e.preventDefault();
 
+    //New Plant Object for us
     const newPlantObj = {
       name: plantName,
       image: plantImage,
       price: plantPrice
     }
+
+    //Create an options object in which that newPlant will reside
+    const options = {
+      method: "POST", 
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(newPlantObj)
+    };
+
+    //Create a POST request with feth
+    fetch("http://localhost:6001/plants", options)
+      .then(resp => resp.json())
+      .then(newPlant => console.log(newPlant))
 
     plantInputForm(newPlantObj)
 
