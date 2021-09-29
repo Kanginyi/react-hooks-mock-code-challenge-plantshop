@@ -26,9 +26,7 @@ function NewPlantForm({plantInputForm}) {
     //Create a POST request with feth
     fetch("http://localhost:6001/plants", options)
       .then(resp => resp.json())
-      .then(newPlant => console.log(newPlant))
-
-    plantInputForm(newPlantObj)
+      .then(newPlant => plantInputForm(newPlant))
 
     e.target.reset();
   }
@@ -37,9 +35,9 @@ function NewPlantForm({plantInputForm}) {
     <div className="new-plant-form">
       <h2>New Plant</h2>
       <form onSubmit={updatePlantForm}>
-        <input onChange={e => setPlantName(e.target.value)} type="text" name="name" placeholder="Plant name" />
-        <input onChange={e => setPlantImage(e.target.value)} type="text" name="image" placeholder="Image URL" />
-        <input onChange={e => setPlantPrice(e.target.value)} type="number" name="price" step="0.01" placeholder="Price" />
+        <input value={name} onChange={e => setPlantName(e.target.value)} type="text" name="name" placeholder="Plant name" />
+        <input value={image} onChange={e => setPlantImage(e.target.value)} type="text" name="image" placeholder="Image URL" />
+        <input value={price} onChange={e => setPlantPrice(e.target.value)} type="number" name="price" step="0.01" placeholder="Price" />
         <button type="submit">Add Plant</button>
       </form>
     </div>
