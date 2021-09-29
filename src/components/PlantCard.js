@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 
-function PlantCard({name, price, image = "https://via.placeholder.com/400"}) {
+function PlantCard({id, name, price, image = "https://via.placeholder.com/400"}) {
   const [stock, setStock] = useState(true);
 
   function switchButton () {
     setStock(stock => !stock)
+  }
+
+  function deleteButton() {
+    console.log("hi")
   }
 
   return (
@@ -17,6 +21,7 @@ function PlantCard({name, price, image = "https://via.placeholder.com/400"}) {
       ) : (
         <button onClick={switchButton}>Out of Stock</button>
       )}
+      <button onClick={deleteButton}>Delete </button>
     </li>
   );
 }

@@ -19,7 +19,7 @@ function PlantPage() {
     setSearchBirch(e.target.value)
   }
 
-  const filterPlants = plantData.filter(plant => plant.name.includes(searchBirch))
+  const filterPlants = plantData.filter(plant => plant.name.toLowerCase().includes(searchBirch.toLowerCase()))
   
   //All the things for the Plant Form Input
   function plantInputForm (obj) {
@@ -37,3 +37,9 @@ function PlantPage() {
 }
 
 export default PlantPage;
+
+/**
+ * As a user
+ * I can update the priicie of a plant and still see the updated price after refreshing the page
+ * I can delete a plant and it's still gone when I refresh the page
+ */
